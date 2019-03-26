@@ -1,4 +1,7 @@
 //app.js
+import Bmob from './utils/Bmob-1.7.0.min.js';
+Bmob.initialize("b54caa93c07df4f0156791e6b15b594f", "8a26d9a27077cc1e6e52fe3abff0adfb");
+
 App({
   onLaunch: function () {
     // 展示本地存储能力

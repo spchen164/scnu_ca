@@ -1,4 +1,7 @@
 //index.js
+//import Bmob
+import Bmob from '../../utils/Bmob-1.7.0.min.js';
+
 //获取应用实例
 const app = getApp()
 
@@ -7,7 +10,7 @@ Page({
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    canIUse: wx.canIUse('button.open-type.getUserInfo'), 
   },
   //事件处理函数
   bindViewTap: function() {
@@ -50,5 +53,5 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
-  }
+  },
 })
