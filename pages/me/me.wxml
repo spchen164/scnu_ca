@@ -1,0 +1,9 @@
+<!--pages/me/me.wxml-->
+<view class="container">
+  <button wx:if="{{!userInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <block class="userinfo" wx:else>
+    <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
+    <view class="userinfo-nickname">{{userInfo.nickName}}</view>
+    <view>{{userOpenId}}</view>
+  </block>
+</view>

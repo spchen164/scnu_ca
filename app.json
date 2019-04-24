@@ -1,12 +1,34 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/me/me"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "华南师大计协平台",
     "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color": "#cfeef0",
+    "selectedColor": "#0000ff",
+    "backgroundColor": "#1aaae6",
+    "borderStyle": "white",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "image/home.png",
+        "selectedIconPath": "image/selected_home.png"
+      },
+      {
+        "pagePath": "pages/me/me",
+        "text": "我",
+        "iconPath": "image/me.png",
+        "selectedIconPath": "image/selected_me.png"
+      }
+    ],
+    "position": "bottom"
   },
   "sitemapLocation": "sitemap.json"
 }
