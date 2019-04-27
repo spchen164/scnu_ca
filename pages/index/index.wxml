@@ -1,4 +1,4 @@
 <!--index.wxml-->
 <view class="container">
-  <view>{{userInfo.nickName}}</view>
+  <view></view>
 </view>

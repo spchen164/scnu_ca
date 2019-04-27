@@ -13,32 +13,38 @@ Page({
   data: {
     userInfo: null,
     userOpenId: null,
-    canIUse: wx.canIUse('button.open-type'),
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(this.canIUse);
     //判断是否已经拥有用户信息
-    if(app.globalData.userInfo)
+    if(app.globalData.userInfo && app.globalData.userOpenId)
     {
       this.setData({
         userInfo: app.globalData.userInfo,
         userOpenId: app.globalData.userOpenId,
       });
     }
-    else if (!this.canIUse)//对没有open-type的版本做兼容
+    else if (!this.data.canIUse)//对没有open-type的版本做兼容
     {
       wx.getUserInfo({
         success: res => {
-          app.login();
+          app.login();//存在异步操作
           app.globalData.userInfo = res.userInfo;
-          this.setData({
-            userInfo: res.userInfo,
-            userOpenId: app.globalData.userOpenId,
-          });
+          this.setData({userInfo: res.userInfo});
+
+          //判断是否存在openid。若不存在，则需要通过回调函数将获取到的值赋值到这里
+          if (app.globalData.userOpenId)
+            this.setData({ userOpenId: app.globalData.userOpenId });
+          else
+          {
+            app.getUserCallBack = openid => {
+              this.setData({ userOpenId: openid });
+            };
+          }
         }
       });//end getUserInfo
     }
@@ -99,12 +105,19 @@ Page({
   getUserInfo: function (e) {
     if(e.detail.userInfo)
     {
-      app.login();
+      app.login();//存在异步操作
       app.globalData.userInfo = e.detail.userInfo;
-      this.setData({
-        userInfo: e.detail.userInfo,
-        userOpenId: app.globalData.userOpenId,
-      });
+      this.setData({userInfo: e.detail.userInfo});
+
+      //判断是否存在openid。若不存在，则需要通过回调函数将获取到的值赋值到这里
+      if(app.globalData.userOpenId)
+        this.setData({ userOpenId: app.globalData.userOpenId});
+      else
+      {
+        app.getUserCallBack = openid => {
+          this.setData({userOpenId: openid});
+        };
+      }
     }
   },
 })
