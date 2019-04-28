@@ -14,6 +14,20 @@ Page({
     userInfo: null,
     userOpenId: null,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    items: [
+      {
+        text: "123",
+        url: "#",
+      },
+      {
+        text: "456",
+        url: "#",
+      },
+      {
+        text: "789",
+        url: "#",
+      },
+    ],
   },
 
   /**

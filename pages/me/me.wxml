@@ -1,9 +1,20 @@
 <!--pages/me/me.wxml-->
 <view class="container">
-  <button wx:if="{{!userInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+  <button wx:if="{{!userInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">登录</button>
   <block class="userinfo" wx:else>
     <image class="userinfo-avatar" src="{{userInfo.avatarUrl}}"></image>
     <view class="userinfo-nickname">{{userInfo.nickName}}</view>
-    <view>{{userOpenId}}</view>
+  </block>
+</view>
+
+<!-- 选项 -->
+<view class="navigator">
+  <block wx:for="{{items}}"><!-- 这里的列表是静态的，刻意忽略添加wx:key的警告 -->
+    <navigator url="{{item.url}}" hover-stay-time="50">
+      <view class="navigator-item">
+        {{item.text}}
+        <image class="arrow" src="../../image/arrow.png"></image>
+      </view>
+    </navigator>
   </block>
 </view>
