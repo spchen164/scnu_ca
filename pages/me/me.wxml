@@ -9,7 +9,7 @@
 
 <!-- 选项 -->
 <view class="navigator">
-  <block wx:for="{{items}}"><!-- 这里的列表是静态的，刻意忽略添加wx:key的警告 -->
+  <block wx:for="{{items}}"><!-- 这里的列表是静态的，可以忽略wx:key的警告 -->
     <navigator url="{{item.url}}" hover-stay-time="50">
       <view class="navigator-item">
         {{item.text}}

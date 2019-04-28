@@ -16,15 +16,23 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     items: [
       {
-        text: "123",
+        text: "报修",
         url: "#",
       },
       {
-        text: "456",
+        text: "查看进行中订单",
         url: "#",
       },
       {
-        text: "789",
+        text: "查看已完成订单",
+        url: "#",
+      },
+      {
+        text: "关于",
+        url: "#",
+      },
+      {
+        text: "意见反馈",
         url: "#",
       },
     ],
