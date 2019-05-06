@@ -13,18 +13,18 @@ Page({
   data: {
     userInfo: null,
     userOpenId: null,
-    canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    items: [
+    canIUse: wx.canIUse('button.open-type.getUserInfo'),//检查登录按钮功能是否能用
+    items: [//菜单选项
       {
         text: "报修",
         url: "#",
       },
       {
-        text: "查看进行中订单",
+        text: "进行中的订单",
         url: "#",
       },
       {
-        text: "查看已完成订单",
+        text: "已完成的订单",
         url: "#",
       },
       {
@@ -35,7 +35,13 @@ Page({
         text: "意见反馈",
         url: "#",
       },
-    ],
+    ],//end items
+    rootItems: [
+      {
+        text: "管理员管理",
+        url: "#",
+      },
+    ],//end rootItems
   },
 
   /**

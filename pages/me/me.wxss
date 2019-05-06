@@ -35,6 +35,10 @@
 
 .arrow
 {
-  width: 50rpx;
-  height: 50rpx;
+  width: 20rpx;
+  height: 20rpx;
+  margin: 15rpx 20rpx 15rpx 0rpx;
+  border-top: 5rpx solid black;
+  border-right: 5rpx solid black;
+  transform: rotate(45deg);
 }

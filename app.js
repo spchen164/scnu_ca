@@ -55,6 +55,7 @@ App({
   },
 
   globalData: {
+    version: "1.0",
     userInfo: null,
     userOpenId: null,
   }

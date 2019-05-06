@@ -13,4 +13,10 @@ Page({
   onLoad: function () {
     
   },// end onLoad
+
+  //下拉刷新事件
+  onPullDownRefresh: function(){
+    console.log("PullDownRefresh");
+    wx.stopPullDownRefresh();
+  }
 });
