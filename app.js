@@ -22,7 +22,7 @@ App({
       success: res => {
         if (res.authSetting['scope.userInfo']) {
           //用户登录
-          this.login();//存在异步操作，但我没有回调处理。因为这里返回的数据是给自己的
+          this.login();//存在异步操作
 
           // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
           wx.getUserInfo({
@@ -48,9 +48,25 @@ App({
       this.globalData.userOpenId = res.authData.weapp.openid;
       if(this.getUserCallBack)//判断是否需要将openid回传
         this.getUserCallBack(res.authData.weapp.openid);
+      this.getIsAdmin(res.authData.weapp.openid);
       console.log("success login");
     }).catch(err => {
       console.log(err);
+    });
+  },
+
+  //从数据库获取管理员权限
+  getIsAdmin: function(openid) {
+    const query = Bmob.Query("administrator");
+    query.equalTo("adminOpenid", "==", openid);
+
+    query.find().then(res => {
+      if(res.length > 0)
+        this.globalData.isAdmin = true;
+      else
+        this.globalData.isAdmin = false;
+      if (this.getUserIsAdmin)//判断是否需要将管理员权限回传
+        this.getUserIsAdmin(this.globalData.isAdmin);
     });
   },
 
@@ -58,5 +74,6 @@ App({
     version: "1.0",
     userInfo: null,
     userOpenId: null,
+    isAdmin: null,
   }
 });

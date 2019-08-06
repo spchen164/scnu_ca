@@ -13,6 +13,7 @@ Page({
   data: {
     userInfo: null,
     userOpenId: null,
+    isAdmin: null,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),//检查登录按钮功能是否能用
     items: [//菜单选项
       {
@@ -54,6 +55,7 @@ Page({
       this.setData({
         userInfo: app.globalData.userInfo,
         userOpenId: app.globalData.userOpenId,
+        isAdmin: app.globalData.isAdmin,
       });
     }
     else if (!this.data.canIUse)//对没有open-type的版本做兼容
@@ -73,7 +75,17 @@ Page({
               this.setData({ userOpenId: openid });
             };
           }
-        }
+
+          //判断是否已获取管理员权限。若不存在，则通过回调函数获取
+          if(app.globalData.isAdmin)
+            this.setData({ isAdmin: app.globalData.isAdmin });
+          else
+          {
+            app.getUserIsAdmin = admin => {
+              this.setData({ isAdmin: admin });
+            };
+          }
+        }//end success
       });//end getUserInfo
     }
   },
@@ -89,7 +101,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    
   },
 
   /**
@@ -144,6 +156,16 @@ Page({
       {
         app.getUserCallBack = openid => {
           this.setData({userOpenId: openid});
+        };
+      }
+
+      //判断是否已获取管理员权限。若不存在，则通过回调函数获取
+      if (app.globalData.isAdmin)
+        this.setData({ isAdmin: app.globalData.isAdmin });
+      else
+      {
+        app.getUserIsAdmin = admin => {
+          this.setData({ isAdmin: admin });
         };
       }
     }

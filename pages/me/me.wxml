@@ -21,7 +21,7 @@
       </navigator>
     </block>
   </view>
-  <view wx:if="{{true}}" class="navigator"><!-- 当前组件只有管理员才显示 -->
+  <view wx:if="{{isAdmin}}" class="navigator"><!-- 当前组件只有管理员才显示 -->
     <block wx:key="text" wx:for="{{rootItems}}">
       <navigator url="{{item.url}}" hover-stay-time="50">
         <view class="navigator-item">
