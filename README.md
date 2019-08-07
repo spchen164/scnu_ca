@@ -5,6 +5,8 @@ computer association miniprogram
 微信开发者工具+Bmob云
 
 ## 下一步要做的
+将administrator表删除，在user表中添加isAdmin，并修改相应代码
+
 ### 为“我”里面的选项添加页面
 * 报修
 * 进行中的订单
@@ -12,6 +14,7 @@ computer association miniprogram
 * 关于
 * 意见反馈
 * 管理员管理
+* 技术人员管理
 
 ### 完善首页
 

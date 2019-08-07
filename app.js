@@ -49,6 +49,7 @@ App({
       if(this.getUserCallBack)//判断是否需要将openid回传
         this.getUserCallBack(res.authData.weapp.openid);
       this.getIsAdmin(res.authData.weapp.openid);
+      this.recordUser(res.authData.weapp.openid);
       console.log("success login");
     }).catch(err => {
       console.log(err);
@@ -67,6 +68,31 @@ App({
         this.globalData.isAdmin = false;
       if (this.getUserIsAdmin)//判断是否需要将管理员权限回传
         this.getUserIsAdmin(this.globalData.isAdmin);
+    }).catch(err => {
+      console.log(err);
+    });
+  },
+
+  //将用户数据写到另一个表中，比较简洁
+  recordUser: function(openid) {
+    const query = Bmob.Query("user");
+    query.equalTo("userOpenid", "==", openid);
+    
+    query.find().then(res => {
+      if(res.length <= 0)//表中不存在该用户
+      {
+        query.set("userOpenid", openid);
+        query.set("isVIP", false);
+        query.set("isTech", false);
+        query.set("userInfo", this.globalData.userInfo);
+        query.save().then(res => {
+          console.log("recorded");
+        }).catch(err => {
+          console.log(err);
+        });
+      }
+    }).catch(err => {
+      console.log(err);
     });
   },
 

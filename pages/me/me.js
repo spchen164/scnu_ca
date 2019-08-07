@@ -42,6 +42,10 @@ Page({
         text: "管理员管理",
         url: "#",
       },
+      {
+        text: "技术人员管理",
+        url: "#",
+      },
     ],//end rootItems
   },
 
