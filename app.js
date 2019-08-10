@@ -48,8 +48,8 @@ App({
       this.globalData.userOpenId = res.authData.weapp.openid;
       if(this.getUserCallBack)//判断是否需要将openid回传
         this.getUserCallBack(res.authData.weapp.openid);
-      this.getIsAdmin(res.authData.weapp.openid);
       this.recordUser(res.authData.weapp.openid);
+      this.getIsAdmin(res.authData.weapp.openid);
       console.log("success login");
     }).catch(err => {
       console.log(err);
@@ -58,11 +58,11 @@ App({
 
   //从数据库获取管理员权限
   getIsAdmin: function(openid) {
-    const query = Bmob.Query("administrator");
-    query.equalTo("adminOpenid", "==", openid);
+    const query = Bmob.Query("user");
+    query.equalTo("userOpenid", "==", openid);
 
     query.find().then(res => {
-      if(res.length > 0)
+      if(res.length > 0 && res[0].isAdmin == true)
         this.globalData.isAdmin = true;
       else
         this.globalData.isAdmin = false;
@@ -73,7 +73,7 @@ App({
     });
   },
 
-  //将用户数据写到另一个表中，比较简洁
+  //将用户数据写到另一个表中，比较简洁，不用Bmob自带的_User
   recordUser: function(openid) {
     const query = Bmob.Query("user");
     query.equalTo("userOpenid", "==", openid);
@@ -84,6 +84,7 @@ App({
         query.set("userOpenid", openid);
         query.set("isVIP", false);
         query.set("isTech", false);
+        query.set("isAdmin", false);
         query.set("userInfo", this.globalData.userInfo);
         query.save().then(res => {
           console.log("recorded");
