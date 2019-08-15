@@ -92,6 +92,16 @@ App({
           console.log(err);
         });
       }
+      else  //为了保证信息更新，用户登录后更新用户信息
+      {
+        query.set("id", res[0].objectId);//Bmob修改数据需要objectId
+        query.set("userInfo", this.globalData.userInfo);
+        query.save().then(res => {
+          console.log("updated");
+        }).catch(err => {
+          console.log(err);
+        })
+      }
     }).catch(err => {
       console.log(err);
     });
