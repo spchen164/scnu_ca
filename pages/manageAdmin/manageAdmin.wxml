@@ -1,0 +1,5 @@
+<!--pages/manageAdmin/manageAdmin.wxml-->
+<import src="../../template.wxml" />
+<view class="adminCard" wx:key="{{adminInfo.userOpenid}}" wx:for="{{adminInfo}}">
+    <template is="userCard" data="{{...item.userInfo}}" />
+</view>

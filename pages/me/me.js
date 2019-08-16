@@ -12,7 +12,7 @@ Page({
    */
   data: {
     userInfo: null,
-    userOpenId: null,
+    userOpenid: null,
     isAdmin: null,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),//检查登录按钮功能是否能用
     items: [//菜单选项
@@ -44,7 +44,7 @@ Page({
     rootItems: [
       {
         text: "管理员管理",
-        url: "#",
+        url: "../manageAdmin/manageAdmin",
       },
       {
         text: "技术人员管理",
@@ -62,11 +62,11 @@ Page({
    */
   onLoad: function (options) {
     //判断是否已经拥有用户信息
-    if(app.globalData.userInfo && app.globalData.userOpenId)
+    if(app.globalData.userInfo && app.globalData.userOpenid)
     {
       this.setData({
         userInfo: app.globalData.userInfo,
-        userOpenId: app.globalData.userOpenId,
+        userOpenid: app.globalData.userOpenid,
         isAdmin: app.globalData.isAdmin,
       });
     }
@@ -79,12 +79,12 @@ Page({
           this.setData({userInfo: res.userInfo});
 
           //判断是否存在openid。若不存在，则需要通过回调函数将获取到的值赋值到这里
-          if (app.globalData.userOpenId)
-            this.setData({ userOpenId: app.globalData.userOpenId });
+          if (app.globalData.userOpenid)
+            this.setData({ userOpenid: app.globalData.userOpenid });
           else
           {
             app.getUserCallBack = openid => {
-              this.setData({ userOpenId: openid });
+              this.setData({ userOpenid: openid });
             };
           }
 
@@ -162,12 +162,12 @@ Page({
       this.setData({userInfo: e.detail.userInfo});
 
       //判断是否存在openid。若不存在，则需要通过回调函数将获取到的值赋值到这里
-      if(app.globalData.userOpenId)
-        this.setData({ userOpenId: app.globalData.userOpenId});
+      if(app.globalData.userOpenid)
+        this.setData({ userOpenid: app.globalData.userOpenid});
       else
       {
         app.getUserCallBack = openid => {
-          this.setData({userOpenId: openid});
+          this.setData({userOpenid: openid});
         };
       }
 

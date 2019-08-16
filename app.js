@@ -45,7 +45,7 @@ App({
   //使用Bmob登录小程序
   login: function () {
     Bmob.User.auth().then(res => {
-      this.globalData.userOpenId = res.authData.weapp.openid;
+      this.globalData.userOpenid = res.authData.weapp.openid;
       if(this.getUserCallBack)//判断是否需要将openid回传
         this.getUserCallBack(res.authData.weapp.openid);
       this.recordUser(res.authData.weapp.openid);
@@ -110,7 +110,7 @@ App({
   globalData: {
     version: "1.0",
     userInfo: null,
-    userOpenId: null,
+    userOpenid: null,
     isAdmin: null,
   }
 });

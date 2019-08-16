@@ -1,5 +1,5 @@
 <template name="userCard">
-  <view class="userCardItem" data-openid="{{openid}}">
+  <view class="userCardItem">
     <image class="cardImg" src="{{avatarUrl}}"></image>
     <view class="textGroup">
       <view class="cardNickName">{{nickName}}</view>
