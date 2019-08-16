@@ -1,0 +1,10 @@
+<template name="userCard">
+  <view class="userCardItem" data-openid="{{openid}}">
+    <image class="cardImg" src="{{avatarUrl}}"></image>
+    <view class="textGroup">
+      <view class="cardNickName">{{nickName}}</view>
+      <view class="cardGenderMale" wx:if="{{gender==1}}">♂</view>
+      <view class="cardGenderFemale" wx:elif="{{gender==2}}">♀</view>
+    </view>
+  </view>
+</template>

@@ -7,3 +7,40 @@
   justify-content: space-between;
   box-sizing: border-box;
 } 
+
+/*template-userCard*/
+.userCardItem
+{
+  display: flex;
+  padding: 15rpx 20rpx;
+  border-bottom: 1px solid #cdcdcd;
+}
+
+.cardImg
+{
+  background-color: #cdcdcd;
+  width: 128rpx;
+  height: 128rpx;
+  margin: 20rpx;
+  border-radius: 50%;
+}
+
+.textGroup
+{
+  margin: 20rpx;
+}
+
+.cardNickName
+{
+  color: #000;
+}
+
+.cardGenderMale
+{
+  color: #00f;
+}
+
+.cardGenderFemale
+{
+  color: rgb(255, 60, 158);
+}
