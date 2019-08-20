@@ -1,5 +1,6 @@
 <template name="userCard">
-  <view class="userCardItem">
+  <view class="userCardItem" bindtap="cardTapFunction">
+    <checkbox class="checkboxSelect" value="{{userOpenid}}"></checkbox>
     <image class="cardImg" src="{{avatarUrl}}"></image>
     <view class="textGroup">
       <view class="cardNickName">{{nickName}}</view>

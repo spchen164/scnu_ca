@@ -1,4 +1,30 @@
 /* pages/manageAdmin/manageAdmin.wxss */
+#btnGroupAdmin
+{
+  display: flex;
+}
+
+#btnAddAdmin
+{
+  background-color: white;
+}
+
+#btnDelAdmin
+{
+  background-color: red;
+}
+
+.btnGroupTop
+{
+  flex-grow: 1;
+  margin: 20rpx;
+  font-size: 0.8em;
+}
+.btnGroupTop:active
+{
+  box-shadow: 5rpx 5rpx 7rpx 1rpx;
+}
+
 .adminCard
 {
   display: flex;

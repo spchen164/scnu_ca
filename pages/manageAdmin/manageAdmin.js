@@ -10,9 +10,19 @@ Page({
    * 页面的初始数据
    */
   data: {
-    openid: app.globalData.userOpenId,
+    userOpenid: app.globalData.userOpenid,
     userInfo: app.globalData.userInfo,
     adminInfo: null,
+    deleteItem: [],
+  },
+
+  cardTapFunction: function(e) {
+    
+  },
+
+  getSelectedItem: function(e) {
+    this.setData({deleteItem: e.detail.value});
+    console.log(this.data.deleteItem);
   },
 
   /**

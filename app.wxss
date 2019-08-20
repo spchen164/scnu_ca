@@ -16,8 +16,14 @@
   border-bottom: 1px solid #cdcdcd;
 }
 
+.checkboxSelect
+{
+  display: flex;
+}
+
 .cardImg
 {
+  display: flex;
   background-color: #cdcdcd;
   width: 128rpx;
   height: 128rpx;
@@ -27,6 +33,8 @@
 
 .textGroup
 {
+  display: flex;
+  flex-direction: column;
   margin: 20rpx;
 }
 

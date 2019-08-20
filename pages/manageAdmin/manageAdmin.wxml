@@ -1,5 +1,12 @@
 <!--pages/manageAdmin/manageAdmin.wxml-->
 <import src="../../template.wxml" />
-<view class="adminCard" wx:key="{{adminInfo.userOpenid}}" wx:for="{{adminInfo}}">
-    <template is="userCard" data="{{...item.userInfo}}" />
+<view id="btnGroupAdmin">
+  <button id="btnAddAdmin" class="btnGroupTop">添加</button>
+  <button id="btnDelAdmin" class="btnGroupTop">删除</button>
 </view>
+<checkbox-group bindchange="getSelectedItem">
+  <view class="adminCard" wx:key="{{adminInfo.userOpenid}}" wx:for="{{adminInfo}}">
+      <template is="userCard" 
+                data="{{...item.userInfo, userOpenid: item.userOpenid}}" />
+  </view>
+</checkbox-group>
