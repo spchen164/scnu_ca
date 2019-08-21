@@ -25,6 +25,27 @@ Page({
     console.log(this.data.deleteItem);
   },
 
+  onAdd: function() {
+    console.log("added");
+  },
+
+  onDelete: function() {
+    const query = Bmob.Query("user");
+    query.containedIn("userOpenid", this.data.deleteItem);
+
+    query.find().then(todo => {
+      todo.set("isAdmin", false);//取消管理员权限
+      todo.saveAll().then(res => {//保存到数据库
+        console.log(res);
+      }).catch(err => {
+        console.log(err);
+      });
+    }).catch(err => {
+      console.log(err);
+    })
+    console.log("deleted");
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
