@@ -1,2 +1,14 @@
 <!--pages/feedback/feedback.wxml-->
-<text>pages/feedback/feedback.wxml</text>
+<view id="feedbackContainer">
+  <form bindsubmit="submit">
+    <view class="tipItem">反馈内容</view>
+    <textarea id="feedback" class="formItem" name="feedback" placeholder="反馈文本"></textarea>
+    <view></view>
+    <view>请留下您的联系方式</view>
+    <view class="tipItem">姓名</view>
+    <input id="name" class="formItem" name="name" placeholder="名称文本"></input>
+    <view class="tipItem">手机</view>
+    <input id="phone" class="formItem" name="phone" placeholder="手机号码" type="number"></input>
+    <button id="ok" form-type="submit">确定</button>
+  </form>
+</view>
