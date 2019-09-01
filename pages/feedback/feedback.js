@@ -1,18 +1,60 @@
 // pages/feedback/feedback.js
+//import Bmob
+import Bmob from '../../utils/Bmob-1.7.0.min.js';
+
+//获取应用实例
+const app = getApp();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
+    userOpenid: app.globalData.userOpenid,
+    repairing: app.globalData.repairing,
+    repaired: app.globalData.repaired,
+  },
 
+  submit: function (e) {
+    console.log(e.detail.value);
+    let form = e.detail.value;
+    if (form.feedback == "") {
+      wx.showToast({ title: "反馈文本不能为空", icon: "none" });
+      return;
+    }
+    if (form.name == "") {
+      wx.showToast({ title: "姓名不能为空", icon: "none" });
+      return;
+    }
+    if (form.phone == "") {
+      wx.showToast({ title: "联系方式不能为空", icon: "none" });
+      return;
+    }
+
+    //保存到数据库中
+    const query = Bmob.Query("repair");
+    query.set("information", form);
+    query.set("status", this.data.repairing);
+    query.set("userOpenid", this.data.userOpenid);
+    query.save().then(res => {
+      console.log(res);
+      wx.showToast({ title: "已提交" });
+    }).catch(err => {
+      console.log(err);
+    });
+
+    //跳转回“我”的页面
+    wx.navigateBack();
+
+    /*后续最好添加提醒功能*/
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({ userOpenid: app.globalData.userOpenid });//不知道为什么不能再data赋值
   },
 
   /**
