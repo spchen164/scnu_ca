@@ -2,6 +2,12 @@
   "pages": [
     "pages/index/index",
     "pages/me/me",
+    "pages/repair/repair",
+    "pages/repairingList/repairingList",
+    "pages/repairedList/repairedList",
+    "pages/VIPRegister/VIPRegister",
+    "pages/about/about",
+    "pages/feedback/feedback",
     "pages/manageAdmin/manageAdmin",
     "pages/manageTech/manageTech",
     "pages/manageVIP/manageVIP"

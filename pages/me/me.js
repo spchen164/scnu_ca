@@ -18,27 +18,27 @@ Page({
     items: [//菜单选项
       {
         text: "报修",
-        url: "#",
+        url: "../repair/repair",
       },
       {
         text: "进行中的维修单",
-        url: "#",
+        url: "../repairingList/repairingList",
       },
       {
         text: "已完成的维修单",
-        url: "#",
+        url: "../repairedList/repairedList",
       },
       {
         text: "会员登记缴费",
-        url: "#",
+        url: "../VIPRegister/VIPRegister",
       },
       {
         text: "关于",
-        url: "#",
+        url: "../about/about",
       },
       {
         text: "意见反馈",
-        url: "#",
+        url: "../feedback/feedback",
       },
     ],//end items
     rootItems: [

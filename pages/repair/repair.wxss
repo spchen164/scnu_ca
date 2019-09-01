@@ -1,0 +1,32 @@
+/* pages/repair/repair.wxss */
+#repairContainer
+{
+  padding: 10rpx 30rpx;
+}
+
+.formItem
+{
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 10rpx;
+  background-color: white;
+  margin-top: 5rpx;
+  padding: 10rpx 0rpx;
+}
+
+.tipItem
+{
+  margin-top: 20rpx;
+}
+.tipItem::before
+{
+  content: "*";
+  color: red;
+}
+
+#ok
+{
+  margin: 20rpx 0rpx;
+  background-color: #1aaae6;
+  color: white;
+}

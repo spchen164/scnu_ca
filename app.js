@@ -112,5 +112,7 @@ App({
     userInfo: null,
     userOpenid: null,
     isAdmin: null,
+    repairing: 1,
+    repaired: 2,
   }
 });

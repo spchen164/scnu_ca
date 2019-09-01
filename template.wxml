@@ -9,3 +9,12 @@
     </view>
   </view>
 </template>
+
+<template name="orderItem">
+  <view class="orderItem">
+    <text>{{objectId}}</text>
+    <text>{{problem}}</text>
+    <text>{{userOpenid}}</text>
+    <text>{{createdAt}}</text>
+  </view>
+</template>

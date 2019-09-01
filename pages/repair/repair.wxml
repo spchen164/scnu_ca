@@ -1,0 +1,23 @@
+<!--pages/repair/repair.wxml-->
+<view id="repairContainer">
+  <form bindsubmit="submit">
+    <view class="tipItem">姓名</view>
+    <input id="name" class="formItem" name="name"></input>
+    <view class="tipItem">入学年份</view>
+    <input id="grade" class="formItem" name="grade" type="number"></input>
+    <view class="tipItem">地点</view>
+    <input id="address" class="formItem" name="address"></input>
+    <view class="tipItem">电脑品牌</view>
+    <input id="brand" class="formItem" name="brand"></input>
+    <view class="tipItem">故障描述</view>
+    <textarea id="problem" class="formItem" name="problem" placeholder="发生的现象和故障，以及允许上门维修时间"></textarea>
+    <view class="tipItem">联系方式（至少选择一种）</view>
+    <view>手机号</view>
+    <input id="phone" class="formItem" name="phone" type="number"></input>
+    <view>微信号</view>
+    <input id="wechat" class="formItem" name="wechat"></input>
+    <view>QQ号</view>
+    <input id="qq" class="formItem" name="qq" type="number"></input>
+    <button id="ok" form-type="submit">确定</button>
+  </form>
+</view>

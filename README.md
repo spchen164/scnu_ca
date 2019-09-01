@@ -14,9 +14,9 @@ computer association miniprogram
 * 会员缴费（可选）
 * 关于
 * 意见反馈
-* 管理员管理
-* 技术人员管理
-* 会员管理
+* 管理员管理-finished
+* 技术人员管理-finished
+* 会员管理-finished
 
 ### 完善首页
 
