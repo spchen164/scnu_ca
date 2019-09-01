@@ -2,7 +2,9 @@
   "pages": [
     "pages/index/index",
     "pages/me/me",
-    "pages/manageAdmin/manageAdmin"
+    "pages/manageAdmin/manageAdmin",
+    "pages/manageTech/manageTech",
+    "pages/manageVIP/manageVIP"
   ],
   "window": {
     "backgroundTextStyle": "light",

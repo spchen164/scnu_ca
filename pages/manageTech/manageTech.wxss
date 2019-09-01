@@ -1,0 +1,31 @@
+/* pages/manageTech/manageTech.wxss */
+#btnGroupTech
+{
+  display: flex;
+}
+
+#btnAddTech
+{
+  background-color: white;
+}
+
+#btnDelTech
+{
+  background-color: red;
+}
+
+.btnGroupTop
+{
+  flex-grow: 1;
+  margin: 20rpx;
+  font-size: 0.8em;
+}
+
+.techCard
+{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 20rpx;
+  border-top: 1px solid #cdcdcd;
+}

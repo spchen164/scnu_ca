@@ -48,11 +48,11 @@ Page({
       },
       {
         text: "技术人员管理",
-        url: "#",
+        url: "../manageTech/manageTech",
       },
       {
         text: "会员管理",
-        url: "#",
+        url: "../manageVIP/manageVIP",
       },
     ],//end rootItems
   },

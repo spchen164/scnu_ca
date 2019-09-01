@@ -1,8 +1,8 @@
-<!--pages/manageAdmin/manageAdmin.wxml-->
+<!--pages/manageVIP/manageVIP.wxml-->
 <modal title="请选择要添加的用户" hidden="{{isCloseModal}}" bindconfirm="onModalConfirm" bindcancel="onModalCancel">
   <checkbox-group bindchange="getAddItem">
-    <view class="adminCard">
-      <block wx:key="{{notAdminInfo.userOpenid}}" wx:for="{{notAdminInfo}}">
+    <view class="VIPCard">
+      <block wx:key="{{notVIPInfo.userOpenid}}" wx:for="{{notVIPInfo}}">
         <template is="userCard" 
                   data="{{...item.userInfo, userOpenid: item.userOpenid, checked: item.isCheck}}" />
       </block>
@@ -11,13 +11,13 @@
 </modal>
 <!-- 上面是对话框 -->
 <import src="../../template.wxml" />
-<view id="btnGroupAdmin">
-  <button id="btnAddAdmin" class="btnGroupTop" bindtap="onAdd">添加</button>
-  <button id="btnDelAdmin" class="btnGroupTop" disabled="{{deleteItem.length <= 0}}" bindtap="onDelete">删除</button>
+<view id="btnGroupVIP">
+  <button id="btnAddVIP" class="btnGroupTop" bindtap="onAdd">添加</button>
+  <button id="btnDelVIP" class="btnGroupTop" disabled="{{deleteItem.length <= 0}}" bindtap="onDelete">删除</button>
 </view>
 <checkbox-group bindchange="getSelectedItem">
-  <view class="adminCard">
-    <block wx:key="{{adminInfo.userOpenid}}" wx:for="{{adminInfo}}">
+  <view class="VIPCard">
+    <block wx:key="{{VIPInfo.userOpenid}}" wx:for="{{VIPInfo}}">
       <template is="userCard" 
                 data="{{...item.userInfo, userOpenid: item.userOpenid, checked: item.isCheck}}" />
     </block>

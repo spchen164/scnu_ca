@@ -1,4 +1,4 @@
-// pages/manageAdmin/manageAdmin.js
+// pages/manageVIP/manageVIP.js
 import Bmob from '../../utils/Bmob-1.7.0.min.js';
 
 //获取应用实例
@@ -12,39 +12,39 @@ Page({
   data: {
     userOpenid: app.globalData.userOpenid,
     userInfo: app.globalData.userInfo,
-    adminInfo: null,
-    notAdminInfo: null,
+    VIPInfo: null,
+    notVIPInfo: null,
     deleteItem: [],
     addItem: [],
     isCloseModal: true,
   },
 
   //用户卡片点击事件处理函数
-  cardTapFunction: function(e) {
-    
+  cardTapFunction: function (e) {
+
   },
 
   //获取要删除的项目
-  getSelectedItem: function(e) {
-    this.setData({deleteItem: e.detail.value});
+  getSelectedItem: function (e) {
+    this.setData({ deleteItem: e.detail.value });
     console.log(this.data.deleteItem);
   },
 
   //获取要添加的项目
-  getAddItem: function(e) {
-    this.setData({addItem: e.detail.value});
+  getAddItem: function (e) {
+    this.setData({ addItem: e.detail.value });
     console.log(this.data.addItem);
   },
 
   //添加按钮
-  onAdd: function() {
+  onAdd: function () {
     const query = Bmob.Query("user");
-    query.equalTo("isAdmin", "==", false);
+    query.equalTo("isVIP", "==", false);
     query.find().then(res => {
       for (var i = 0; i < res.length; i++)
         res[i].isCheck = false;
       this.setData({
-        notAdminInfo: res,
+        notVIPInfo: res,
         isCloseModal: false,
         addItem: [],
       });
@@ -55,15 +55,15 @@ Page({
   },
 
   //添加对话框的确定键
-  onModalConfirm: function() {
+  onModalConfirm: function () {
     const query = Bmob.Query("user");
     query.containedIn("userOpenid", this.data.addItem);
 
     query.find().then(todo => {
-      todo.set("isAdmin", true);//授予管理员权限
+      todo.set("isVIP", true);//授予VIP
       todo.saveAll().then(res => {//保存到数据库
         console.log(res);
-        this.setData({isCloseModal: true});
+        this.setData({ isCloseModal: true });
         this.updateUserList();
       }).catch(err => {
         console.log(err);
@@ -76,13 +76,13 @@ Page({
   },
 
   //添加对话框的取消键
-  onModalCancel: function() {
-    this.setData({isCloseModal: true});
+  onModalCancel: function () {
+    this.setData({ isCloseModal: true });
     console.log("cancel");
   },
 
   //删除按钮
-  onDelete: function() {
+  onDelete: function () {
     wx.showModal({
       title: "警告",
       content: "是否删除？",
@@ -90,13 +90,12 @@ Page({
       confirmColor: "#f00",
       cancelText: "否",
       success: (res) => {
-        if(res.confirm)
-        {
+        if (res.confirm) {
           const query = Bmob.Query("user");
           query.containedIn("userOpenid", this.data.deleteItem);
 
           query.find().then(todo => {
-            todo.set("isAdmin", false);//取消管理员权限
+            todo.set("isVIP", false);//取消VIP
             todo.saveAll().then(res => {//保存到数据库
               console.log(res);
               this.updateUserList();
@@ -107,26 +106,26 @@ Page({
             console.log(err);
           })
           console.log("deleted");
-          wx.showToast({title: "已删除"});
+          wx.showToast({ title: "已删除" });
         }
       },//end success
     });
   },
 
   //更新用户列表函数
-  updateUserList: function() {
+  updateUserList: function () {
     const query = Bmob.Query("user");
-    query.equalTo("isAdmin", "==", true);
+    query.equalTo("isVIP", "==", true);
     query.find().then(res => {
       for (var i = 0; i < res.length; i++)
         res[i].isCheck = false;
-      this.setData({ 
-        adminInfo: res,
+      this.setData({
+        VIPInfo: res,
         deleteItem: [],
         addItem: [],
       });
       wx.stopPullDownRefresh();//停止刷新
-      console.log("administrator data has been got");
+      console.log("VIP data has been got");
     }).catch(err => {
       console.log(err);
     });
