@@ -11,10 +11,17 @@
 </template>
 
 <template name="orderItem">
-  <view class="orderItem">
-    <text>{{objectId}}</text>
-    <text>{{problem}}</text>
-    <text>{{userOpenid}}</text>
-    <text>{{createdAt}}</text>
+  <view class="orderItem" bindtap="orderTapFunction" data-objectId="{{objectId}}">
+    <view class="orderItemTop">
+      <view class="repairID">维修单号: {{objectId}}</view>
+      <view class="updatedTime">{{updatedAt}}</view>
+    </view>
+    <view class="name">{{name}}/{{grade}}/{{brand}}</view>
+    <view class="problem">{{problem}}</view>
+    <view class="address">地点: {{address}}</view>
+    <view class="contact" wx:if="{{phone != ''}}">手机号: {{phone}}</view>
+    <view class="contact" wx:if="{{wechat != ''}}">微信号: {{wechat}}</view>
+    <view class="contact" wx:if="{{qq != ''}}">QQ号: {{qq}}</view>
+    <view class="suggestion" wx:if="{{suggestion != ''}}">评价: {{suggestion}}</view>
   </view>
 </template>

@@ -1,2 +1,13 @@
 <!--pages/repairingList/repairingList.wxml-->
-<text>pages/repairingList/repairingList.wxml</text>
+<modal title="是否确认完成此维修单？" hidden="{{isCloseModal}}" bindconfirm="onModalConfirm" bindcancel="onModalCancel">
+</modal>
+<!-- 上面是对话框 -->
+<import src="../../template.wxml" />
+<view class="repairingTip">单击维修单可以确认完成维修单</view>
+<view class="repairingTip">此操作可以由用户和技术人员其中一方操作</view>
+<view id="repairing">
+  <block wx:key="{{userOpenid}}" wx:for="{{repairingList}}">
+    <template is="orderItem" 
+              data="{{...item.information, updatedAt: item.updatedAt, objectId: item.objectId, suggestion: item.suggestion}}" />
+  </block>
+</view>

@@ -9,7 +9,7 @@ computer association miniprogram
 
 ### 为“我”里面的选项添加页面
 * 报修
-* 进行中的订单
+* 进行中的订单-finished
 * 已完成的订单
 * 会员缴费（可选）
 * 关于

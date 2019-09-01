@@ -52,3 +52,51 @@
 {
   color: rgb(255, 60, 158);
 }
+
+/*template-orderItem*/
+.orderItem
+{
+  display: flex;
+  flex-direction: column;
+  font-size: 35rpx;
+  padding: 15rpx 20rpx;
+  border-bottom: 1px solid #cdcdcd;
+}
+
+.orderItemTop
+{
+  display: flex;
+  font-size: 25rpx;
+  justify-content: space-between;
+}
+
+.repairID
+{
+  display: flex;
+}
+
+.updatedTime
+{
+  display: flex;
+  color: grey;
+}
+
+.name
+{
+  display: flex;
+}
+
+.problem
+{
+  display: flex;
+}
+
+.address
+{
+  display: flex;
+}
+
+.contact
+{
+  display: flex;
+}

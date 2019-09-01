@@ -1,1 +1,17 @@
 /* pages/repairedList/repairedList.wxss */
+.repairedTip
+{
+  margin: 20rpx;
+  font-size: 30rpx;
+  color: #1aaae6;
+  text-align: center;
+}
+
+#repaired
+{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 20rpx;
+  border-top: 1px solid #cdcdcd;
+}

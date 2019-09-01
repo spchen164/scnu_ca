@@ -17,7 +17,7 @@
 </view>
 <checkbox-group bindchange="getSelectedItem">
   <view class="adminCard">
-    <block wx:key="{{adminInfo.userOpenid}}" wx:for="{{adminInfo}}">
+    <block wx:key="{{userOpenid}}" wx:for="{{adminInfo}}">
       <template is="userCard" 
                 data="{{...item.userInfo, userOpenid: item.userOpenid, checked: item.isCheck}}" />
     </block>
