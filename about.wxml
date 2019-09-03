@@ -1,0 +1,21 @@
+<!--pages/about/about.wxml-->
+<!-- 当用户未授权时，仅显示一个登录按钮，不能进行其它操作 -->
+<!-- 只有用户授权并登录后，才能显示菜单让其操作 -->
+<view id="body">
+  <view class="container">
+    <block class="userinfo">
+      <image class="club-logo" src="/image/logo.jpg"></image>
+      <view class="club-name">华南师大计协平台</view>
+      <view class="club-ver">Version 0.1</view>
+    </block>
+  </view>
+</view>
+<view id="text">
+  <view>华南师范大学计算机协会，成立于2001年，是成立时间较早也是最具有活力的社团之一。社团成立之初，就积极地服务于广大的理工计算机用户，组织了计算机公益维护、电脑导购、各大型软件培训和团购计算机等多方面的活动，受到了校内外的广泛好评。我们立志成为校内最优秀的社团。</view>
+  <view>社团内部多种多样的活动，培训、参观、素拓一样不少。本社团定期开展讲座培训，丰富社员课余生活，提高社员电脑使用、维护技能水平。“责任、激情、奋进、求知、踏实”的口号和严格的管理方式让同学在社团学会更多的本领。</view>
+  <view>社团宗旨：“学以致用，共同发展”。立足于会员，拓展会员计算机知识，丰富会员课外活动，让会员成朝着“更快，更高，更好”的方向前进着。帮助更多的师生，提高社团成员的IT技能。</view>
+</view>
+<view id="footer">
+    <view>公众号：华南师大机协</view>
+    <view>Copyright © 2001-2019 华南师范大学计算机协会.</view>
+</view>
