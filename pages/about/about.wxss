@@ -1,1 +1,39 @@
 /* pages/about/about.wxss */
+#body {
+  height: 80%;
+  width: 100%;
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.club-logo {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 30rpx;
+}
+
+.club-name {
+  color: #000;
+  font-weight: bold;
+}
+
+.club-ver {
+  color: #000;
+}
+
+#text {
+  font-size: 28rpx;
+  margin: 36rpx;
+  text-indent: 2em;
+}
+
+#footer {
+  font-size: 24rpx;
+  text-align: center;
+  margin: 50px;
+  color: #888;
+}
