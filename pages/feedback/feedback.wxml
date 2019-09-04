@@ -2,7 +2,7 @@
 <view id="feedbackContainer">
   <form bindsubmit="submit">
     <view class="tipItem">反馈内容</view>
-    <textarea id="feedback" class="formItem" name="feedback" placeholder="反馈文本"></textarea>
+    <textarea id="content" class="formItem" name="content" placeholder="反馈文本"></textarea>
     <view></view>
     <view>请留下您的联系方式</view>
     <view class="tipItem">姓名</view>

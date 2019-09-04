@@ -17,7 +17,6 @@ Page({
   },
 
   submit: function(e) {
-    console.log(e.detail.value);
     let form = e.detail.value;
     if (form.name == "")
     {
@@ -68,7 +67,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({userOpenid: app.globalData.userOpenid});//不知道为什么不能再data赋值
+    this.setData({userOpenid: app.globalData.userOpenid});//不知道为什么不能在data赋值
   },
 
   /**

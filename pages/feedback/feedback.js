@@ -12,12 +12,9 @@ Page({
    */
   data: {
     userOpenid: app.globalData.userOpenid,
-    repairing: app.globalData.repairing,
-    repaired: app.globalData.repaired,
   },
 
   submit: function (e) {
-    console.log(e.detail.value);
     let form = e.detail.value;
     if (form.feedback == "") {
       wx.showToast({ title: "反馈文本不能为空", icon: "none" });
@@ -33,10 +30,11 @@ Page({
     }
 
     //保存到数据库中
-    const query = Bmob.Query("repair");
-    query.set("information", form);
-    query.set("status", this.data.repairing);
+    const query = Bmob.Query("feedback");
     query.set("userOpenid", this.data.userOpenid);
+    query.set("content", form.content);
+    query.set("name", form.name);
+    query.set("phone", form.phone);
     query.save().then(res => {
       console.log(res);
       wx.showToast({ title: "已提交" });
@@ -54,7 +52,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.setData({ userOpenid: app.globalData.userOpenid });//不知道为什么不能再data赋值
+    this.setData({ userOpenid: app.globalData.userOpenid });//不知道为什么不能在data赋值
   },
 
   /**

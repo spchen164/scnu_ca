@@ -6,7 +6,7 @@
     <block class="userinfo">
       <image class="club-logo" src="/image/logo.jpg"></image>
       <view class="club-name">华南师大计协平台</view>
-      <view class="club-ver">Version 0.1</view>
+      <view class="club-ver">Version {{version}}</view>
     </block>
   </view>
 </view>
@@ -16,6 +16,6 @@
   <view>社团宗旨：“学以致用，共同发展”。立足于会员，拓展会员计算机知识，丰富会员课外活动，让会员成朝着“更快，更高，更好”的方向前进着。帮助更多的师生，提高社团成员的IT技能。</view>
 </view>
 <view id="footer">
-    <view>公众号：华南师大机协</view>
-    <view>Copyright © 2001-2019 华南师范大学计算机协会.</view>
+    <view>{{officialAccount}}</view>
+    <view>{{copyright}}</view>
 </view>
