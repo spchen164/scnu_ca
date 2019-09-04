@@ -13,6 +13,8 @@ Page({
   data: {
     userOpenid: app.globalData.userOpenid,
     isAdmin: app.globalData.isAdmin,
+    isTech: app.globalData.isTech,
+    isVIP: app.globalData.isVIP,
     repairing: app.globalData.repairing,
     repaired: app.globalData.repaired,
     repairedList: [],
@@ -65,7 +67,11 @@ Page({
   //更新列表
   updateList: function () {
     const query = Bmob.Query("repair");
-    query.equalTo("status", "==", this.data.repaired);
+    const queryRepaired = query.equalTo("status", "==", this.data.repaired);
+    if (!this.data.isAdmin && !this.data.isTech) {
+      const queryUser = query.equalTo("userOpenid", "==", this.data.userOpenid);
+      query.and(queryRepaired, queryUser);
+    }
     query.order("-updatedAt");
     query.find().then(res => {
       this.setData({ repairedList: res });
@@ -84,6 +90,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.setData({
+      userOpenid: app.globalData.userOpenid,
+      isAdmin: app.globalData.isAdmin,
+      isTech: app.globalData.isTech,
+      isVIP: app.globalData.isVIP,
+    });
     this.updateList();
   },
 

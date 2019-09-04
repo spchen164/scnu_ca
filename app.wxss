@@ -100,3 +100,9 @@
 {
   display: flex;
 }
+
+.suggestion
+{
+  display: flex;
+  color: blue;
+}

@@ -1,4 +1,14 @@
 /* pages/repairedList/repairedList.wxss */
+#suggestionTextarea
+{
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 10rpx;
+  background-color: white;
+  margin-top: 5rpx;
+  padding: 10rpx 0rpx;
+}
+
 .repairedTip
 {
   margin: 20rpx;

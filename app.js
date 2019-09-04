@@ -49,25 +49,35 @@ App({
       if(this.getUserCallBack)//判断是否需要将openid回传
         this.getUserCallBack(res.authData.weapp.openid);
       this.recordUser(res.authData.weapp.openid);
-      this.getIsAdmin(res.authData.weapp.openid);
+      this.getAuth(res.authData.weapp.openid);
       console.log("success login");
     }).catch(err => {
       console.log(err);
     });
   },
 
-  //从数据库获取管理员权限
-  getIsAdmin: function(openid) {
+  //从数据库获取用户权限
+  getAuth: function(openid) {
     const query = Bmob.Query("user");
     query.equalTo("userOpenid", "==", openid);
 
     query.find().then(res => {
-      if(res.length > 0 && res[0].isAdmin == true)
-        this.globalData.isAdmin = true;
+      if(res.length > 0)
+      {
+        this.globalData.isAdmin = res[0].isAdmin;
+        this.globalData.isTech = res[0].isTech;
+        this.globalData.isVIP = res[0].isVIP;
+      }
       else
+      {
         this.globalData.isAdmin = false;
-      if (this.getUserIsAdmin)//判断是否需要将管理员权限回传
-        this.getUserIsAdmin(this.globalData.isAdmin);
+        this.globalData.isTech = false;
+        this.globalData.isVIP = false;
+      }
+      if (this.getUserAuth)//判断是否需要将权限回传
+        this.getUserAuth(this.globalData.isAdmin, 
+                            this.globalData.isTech, 
+                            this.globalData.isVIP);
     }).catch(err => {
       console.log(err);
     });
@@ -112,6 +122,8 @@ App({
     userInfo: null,
     userOpenid: null,
     isAdmin: null,
+    isTech: null,
+    isVIP: null,
     repairing: 1,
     repaired: 2,
   }

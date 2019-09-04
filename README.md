@@ -1,5 +1,5 @@
 # scnu_ca
-computer association miniprogram
+华南师大计算机协会小程序
 
 ## 开发环境
 微信开发者工具+Bmob云
@@ -10,7 +10,7 @@ computer association miniprogram
 ### 为“我”里面的选项添加页面
 * 报修
 * 进行中的订单-finished
-* 已完成的订单
+* 已完成的订单-finished
 * 会员缴费（可选）
 * 关于
 * 意见反馈

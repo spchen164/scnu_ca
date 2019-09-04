@@ -4,7 +4,7 @@
 <!-- 上面是对话框 -->
 <import src="../../template.wxml" />
 <view class="repairingTip">单击维修单可以确认完成维修单</view>
-<view class="repairingTip">此操作可以由用户和技术人员其中一方操作</view>
+<view class="repairingTip">上述操作可以由用户和技术人员其中一方操作</view>
 <view id="repairing">
   <block wx:key="{{userOpenid}}" wx:for="{{repairingList}}">
     <template is="orderItem" 

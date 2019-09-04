@@ -14,6 +14,8 @@ Page({
     userInfo: null,
     userOpenid: null,
     isAdmin: null,
+    isTech: null,
+    isVIP: null,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),//检查登录按钮功能是否能用
     items: [//菜单选项
       {
@@ -68,6 +70,8 @@ Page({
         userInfo: app.globalData.userInfo,
         userOpenid: app.globalData.userOpenid,
         isAdmin: app.globalData.isAdmin,
+        isTech: app.globalData.isTech,
+        isVIP: app.globalData.isVIP,
       });
     }
     else if (!this.data.canIUse)//对没有open-type的版本做兼容
@@ -90,11 +94,19 @@ Page({
 
           //判断是否已获取管理员权限。若不存在，则通过回调函数获取
           if(app.globalData.isAdmin)
-            this.setData({ isAdmin: app.globalData.isAdmin });
+            this.setData({ 
+              isAdmin: app.globalData.isAdmin, 
+              isTech: app.globalData.isTech,
+              isVIP: app.globalData.isVIP,
+            });
           else
           {
-            app.getUserIsAdmin = admin => {
-              this.setData({ isAdmin: admin });
+            app.getUserIsAdmin = (admin, tech, VIP) => {
+              this.setData({ 
+                isAdmin: admin, 
+                isTech: tech,
+                isVIP: VIP,
+              });
             };
           }
         }//end success
@@ -173,11 +185,19 @@ Page({
 
       //判断是否已获取管理员权限。若不存在，则通过回调函数获取
       if (app.globalData.isAdmin)
-        this.setData({ isAdmin: app.globalData.isAdmin });
+        this.setData({ 
+          isAdmin: app.globalData.isAdmin, 
+          isTech: app.globalData.isTech,
+          isVIP: app.globalData.isVIP,
+        });
       else
       {
-        app.getUserIsAdmin = admin => {
-          this.setData({ isAdmin: admin });
+        app.getUserIsAdmin = (admin, tech, VIP) => {
+          this.setData({ 
+            isAdmin: admin, 
+            isTech: tech,
+            isVIP: VIP,
+          });
         };
       }
     }

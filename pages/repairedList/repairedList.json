@@ -1,4 +1,5 @@
 {
   "usingComponents": {},
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "已完成的维修单"
 }

@@ -10,8 +10,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userOpenid: app.globalData.userOpenid,
-    userInfo: app.globalData.userInfo,
     adminInfo: null,
     notAdminInfo: null,
     deleteItem: [],

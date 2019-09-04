@@ -1,6 +1,6 @@
 <!--pages/repairedList/repairedList.wxml-->
 <modal title="您对此次服务的评价" hidden="{{isCloseModal}}" bindconfirm="onModalConfirm" bindcancel="onModalCancel">
-  <textarea bindinput="getSuggestion"></textarea>
+  <textarea id="suggestionTextarea" bindinput="getSuggestion" value="{{suggestion}}"></textarea>
 </modal>
 <!-- 上面是对话框 -->
 <import src="../../template.wxml" />
