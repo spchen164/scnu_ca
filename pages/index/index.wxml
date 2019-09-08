@@ -1,4 +1,20 @@
 <!--index.wxml-->
-<view class="container">
-  <view></view>
+<view id="indexContainer">
+  <view>协会的日常</view>
+  <swiper class="swiper" indicator-dots="{{true}}" autoplay="{{true}}" circular="{{true}}">
+    <block wx:key="{{title}}" wx:for="{{image}}">
+      <swiper-item>
+        <image class="imgStyle" src="{{item.url}}"></image>
+      </swiper-item>
+    </block>
+  </swiper>
+  <view id="activityInform">活动通知</view>
+  <scroll-view id="scroll" scroll-y="{{true}}">
+    <block wx:key="{{objectId}}" wx:for="{{activity}}">
+      <view class="activityTitle" bindtap="showActivity" data-title="{{item.title}}" data-content="{{item.content}}">{{item.title}}</view>
+    </block>
+  </scroll-view>
+  <view id="activityTip">点击活动查看详情</view>
+  <image id="officialQRcode" src="{{officialQRcode}}"></image>
+  <view>扫描二维码或搜索scnu_ca关注公众号</view>
 </view>

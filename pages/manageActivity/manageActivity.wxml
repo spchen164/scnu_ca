@@ -1,0 +1,21 @@
+<!--pages/manageActivity/manageActivity.wxml-->
+<modal title="请填写要添加的活动内容" hidden="{{isCloseModal}}" bindconfirm="onModalConfirm" bindcancel="onModalCancel">
+  <view>标题</view>
+  <input class="modalTitle" bindinput="onInputTitle"></input>
+  <view>内容</view>
+  <textarea class="modalContent" bindinput="onInputContent"></textarea>
+</modal>
+<!-- 上面是对话框 -->
+<import src="../../template.wxml" />
+<view id="btnGroupActivity">
+  <button id="btnAddActivity" class="btnGroupTop" bindtap="onAdd">添加</button>
+  <button id="btnDelActivity" class="btnGroupTop" disabled="{{deleteItem.length <= 0}}" bindtap="onDelete">删除</button>
+</view>
+<checkbox-group bindchange="getSelectedItem">
+  <view class="activityCard">
+    <block wx:key="{{activityInfo.objectId}}" wx:for="{{activityInfo}}">
+      <template is="activityItem" 
+                data="{{...item, checked: item.isCheck}}" />
+    </block>
+  </view>
+</checkbox-group>

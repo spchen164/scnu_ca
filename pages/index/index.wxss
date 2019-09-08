@@ -1,17 +1,57 @@
 /**index.wxss**/
-.userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+#indexContainer
+{
+  padding: 50rpx 30rpx;
+  text-align: center;
 }
 
-.userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+.swiper
+{
+  width: 600rpx;
+  height: 450rpx;
+  margin: 0rpx auto;
 }
 
-.userinfo-nickname {
-  color: #aaa;
+.imgStyle
+{
+  width: 100%;
+  height: 100%;
+}
+
+#activityInform
+{
+  margin-top: 50rpx;
+  font-size: 60rpx;
+}
+#activityInform::after
+{
+  content: "▼";
+  display: block;
+  font-size: 40rpx;
+}
+
+#activityTip
+{
+  font-size: 30rpx;
+  color: grey;
+}
+
+#scroll
+{
+  height: 500rpx;
+  border: 1px dotted #1aaae6;
+  border-radius: 50rpx;
+  background-color: #ebe9e9;
+}
+
+.activityTitle
+{
+  margin: 15rpx 0rpx;
+}
+
+#officialQRcode
+{
+  width: 300rpx;
+  height: 300rpx;
+  margin-top: 50rpx;
 }

@@ -1,0 +1,51 @@
+/* pages/manageActivity/manageActivity.wxss */
+.modalTitle
+{
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 10rpx;
+  background-color: white;
+  margin-top: 5rpx;
+  padding: 10rpx 0rpx;
+}
+
+.modalContent
+{
+  width: 100%;
+  border: 1px solid grey;
+  border-radius: 10rpx;
+  background-color: white;
+  margin-top: 5rpx;
+  padding: 10rpx 0rpx;
+}
+
+#btnGroupActivity
+{
+  display: flex;
+}
+
+#btnAddActivity
+{
+  background-color: white;
+}
+
+#btnDelActivity
+{
+  background-color: red;
+}
+
+.btnGroupTop
+{
+  flex-grow: 1;
+  margin: 20rpx;
+  font-size: 0.8em;
+}
+
+.activityCard
+{
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  margin: 20rpx;
+  border-top: 1px solid #cdcdcd;
+}

@@ -56,6 +56,10 @@ Page({
         text: "会员管理",
         url: "../manageVIP/manageVIP",
       },
+      {
+        text: "活动管理",
+        url: "../manageActivity/manageActivity",
+      },
     ],//end rootItems
   },
 

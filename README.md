@@ -17,8 +17,10 @@
 * 管理员管理-finished
 * 技术人员管理-finished
 * 会员管理-finished
+* 活动管理-删除功能有问题
 
 ### 完善首页
+finished
 
 ### 添加会员缴费功能（可选）
 若要实现，则需要添加一个表来记录缴费情况，否则可能会漏缴费（填表+缴费）
@@ -52,6 +54,13 @@ suggestion —— string
 ### feedback表
 ```
 objectId —— string primaryKey
+content —— string
+```
+
+### activity表
+```
+objectId —— string primaryKey
+title —— string
 content —— string
 ```
 

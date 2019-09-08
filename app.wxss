@@ -106,3 +106,23 @@
   display: flex;
   color: blue;
 }
+
+/*template-activityItem*/
+.activityItem
+{
+  display: flex;
+  flex-direction: column;
+  font-size: 35rpx;
+  padding: 15rpx 20rpx;
+  border-bottom: 1px solid #cdcdcd;
+}
+
+.activityTitleTemp
+{
+  display: flex;
+}
+
+.activityContentTemp
+{
+  display: flex;
+}

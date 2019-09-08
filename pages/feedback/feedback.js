@@ -16,7 +16,7 @@ Page({
 
   submit: function (e) {
     let form = e.detail.value;
-    if (form.feedback == "") {
+    if (form.content == "") {
       wx.showToast({ title: "反馈文本不能为空", icon: "none" });
       return;
     }

@@ -10,7 +10,8 @@
     "pages/feedback/feedback",
     "pages/manageAdmin/manageAdmin",
     "pages/manageTech/manageTech",
-    "pages/manageVIP/manageVIP"
+    "pages/manageVIP/manageVIP",
+    "pages/manageActivity/manageActivity"
   ],
   "window": {
     "backgroundTextStyle": "light",

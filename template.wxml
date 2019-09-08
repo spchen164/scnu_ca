@@ -25,3 +25,11 @@
     <view class="suggestion" wx:if="{{suggestion != ''}}">评价: {{suggestion}}</view>
   </view>
 </template>
+
+<template name="activityItem">
+  <view class="activityItem" bindtap="activityTapFunction" data-objectId="{{objectId}}">
+    <checkbox class="checkboxSelect" value="{{objectId}}" checked="{{checked}}"></checkbox>
+    <view class="activityTitleTemp">标题: {{title}}</view>
+    <view class="activityContentTemp">内容: {{content}}</view>
+  </view>
+</template>
