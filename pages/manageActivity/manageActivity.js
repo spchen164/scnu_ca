@@ -53,11 +53,11 @@ Page({
       this.updateActivityList();
       this.setData({ isCloseModal: true });
       console.log(res);
+      console.log("confirm");
+      wx.showToast({ title: "已添加" });
     }).catch(err => {
       console.log(err);
     });
-    console.log("confirm");
-    wx.showToast({ title: "已添加" });
   },
 
   //添加对话框的取消键
@@ -76,18 +76,18 @@ Page({
       cancelText: "否",
       success: (res) => {
         if (res.confirm) {
-          const query = Bmob.Query("avtivity");
+          const query = Bmob.Query("activity");
           query.containedIn("objectId", this.data.deleteItem);
           query.find().then(del => {
-            del.desdroyAll().then(r => {
+            del.destroyAll().then(r => {
               this.updateActivityList();
               console.log(r);
+              console.log("deleted");
+              wx.showToast({ title: "已删除" });
             });
           }).catch(err => {
             console.log(err);
           });
-          console.log("deleted");
-          wx.showToast({ title: "已删除" });
         }
       },//end success
     });

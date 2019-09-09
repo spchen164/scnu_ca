@@ -19,7 +19,15 @@ Page({
       {
         title: "slider3",
         url: "../../image/slider3.jpg",
-      }
+      },
+      {
+        title: "slider4",
+        url: "../../image/slider4.jpg",
+      },
+      {
+        title: "slider5",
+        url: "../../image/slider5.jpg",
+      },
     ],
     activity: [],
     officialQRcode: "../../image/officialQRcode.jpg",

@@ -46,10 +46,10 @@ Page({
         isCloseModal: false,
         addItem: [],
       });
+      console.log("added");
     }).catch(err => {
       console.log(err);
-    })
-    console.log("added");
+    });
   },
 
   //添加对话框的确定键
@@ -63,14 +63,14 @@ Page({
         console.log(res);
         this.setData({ isCloseModal: true });
         this.updateUserList();
+        console.log("confirm");
+        wx.showToast({ title: "已添加" });
       }).catch(err => {
         console.log(err);
       });
     }).catch(err => {
       console.log(err);
     });
-    console.log("confirm");
-    wx.showToast({ title: "已添加" });
   },
 
   //添加对话框的取消键
@@ -97,14 +97,14 @@ Page({
             todo.saveAll().then(res => {//保存到数据库
               console.log(res);
               this.updateUserList();
+              console.log("deleted");
+              wx.showToast({ title: "已删除" });
             }).catch(err => {
               console.log(err);
             });
           }).catch(err => {
             console.log(err);
-          })
-          console.log("deleted");
-          wx.showToast({ title: "已删除" });
+          });
         }
       },//end success
     });

@@ -30,10 +30,10 @@ Page({
         text: "已完成的维修单",
         url: "../repairedList/repairedList",
       },
-      {
+      /*{
         text: "会员登记缴费",
         url: "../VIPRegister/VIPRegister",
-      },
+      },*/
       {
         text: "关于",
         url: "../about/about",
