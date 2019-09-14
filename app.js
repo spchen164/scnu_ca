@@ -118,7 +118,7 @@ App({
   },
 
   globalData: {
-    version: "0.6",
+    version: "1.0.0",
     userInfo: null,
     userOpenid: null,
     isAdmin: null,

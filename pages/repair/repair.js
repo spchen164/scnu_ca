@@ -15,7 +15,6 @@ Page({
     repairing: app.globalData.repairing,
     repaired: app.globalData.repaired,
     repairModalId: "ZkDBm-8m09RLcqI4peH4x_ehYRd7pmkHTT-xDhsysT8",
-    techOpenid: [],
   },
 
   submit: function(e) {
@@ -47,7 +46,7 @@ Page({
       return;
     }
     let modalData = {
-      touser: "",
+      touser: this.data.userOpenid,
       template_id: this.data.repairModalId,
       page: "index",
       form_id: e.detail.formId,
@@ -74,15 +73,11 @@ Page({
       console.log(res);
       modalData.data.keyword1.value = res.createdAt;
       wx.showToast({ title: "已提交" });
-      for(let openid of this.data.techOpenid)
-      {
-        modalData.touser = openid;
-        Bmob.sendWeAppMessage(modalData).then(res => {
-          console.log(res);
-        }).catch(err => {
-          console.log(err);
-        });
-      }
+      Bmob.sendWeAppMessage(modalData).then(res => {
+        console.log(res);
+      }).catch(err => {
+        console.log(err);
+      });
       wx.navigateBack();//跳转回“我”的页面
     }).catch(err => {
       console.log(err);
@@ -93,16 +88,6 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    let temp = [];
-    const query = Bmob.Query("user");
-    query.equalTo("isTech", "==", true);
-    query.find().then(res => {
-      for(let item of res)
-        temp.push(item.userOpenid);
-      this.setData({ techOpenid: temp });
-    }).catch(err => {
-      console.log(err);
-    });
     this.setData({userOpenid: app.globalData.userOpenid});//不知道为什么不能在data赋值
   },
 
