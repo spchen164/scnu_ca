@@ -46,6 +46,7 @@ Page({
       wx.showToast({ title: "联系方式至少选择其中一种", icon: "none" });
       return;
     }
+    let dateTime = new Date();
     let modalData = {
       touser: "",
       template_id: this.data.repairModalId,
@@ -53,7 +54,7 @@ Page({
       form_id: e.detail.formId,
       data: {
         keyword1: {
-          value: new Date().toDateString(),
+          value: dateTime.toLocaleDateString() + " " + dateTime.toLocaleTimeString(),
         },
         keyword2: {
           value: e.detail.value.name,
