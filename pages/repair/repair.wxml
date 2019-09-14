@@ -1,6 +1,6 @@
 <!--pages/repair/repair.wxml-->
 <view id="repairContainer">
-  <form bindsubmit="submit">
+  <form bindsubmit="submit" report-submit="{{true}}">
     <view class="tipItem">姓名</view>
     <input id="name" class="formItem" name="name"></input>
     <view class="tipItem">入学年份</view>

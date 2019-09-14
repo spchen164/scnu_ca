@@ -14,6 +14,8 @@ Page({
     userOpenid: app.globalData.userOpenid,
     repairing: app.globalData.repairing,
     repaired: app.globalData.repaired,
+    repairModalId: "ZkDBm-8m09RLcqI4peH4x_ehYRd7pmkHTT-xDhsysT8",
+    techOpenid: [],
   },
 
   submit: function(e) {
@@ -44,6 +46,24 @@ Page({
       wx.showToast({ title: "联系方式至少选择其中一种", icon: "none" });
       return;
     }
+    let modalData = {
+      touser: "",
+      template_id: this.data.repairModalId,
+      page: "index",
+      form_id: e.detail.formId,
+      data: {
+        keyword1: {
+          value: new Date().toDateString(),
+        },
+        keyword2: {
+          value: e.detail.value.name,
+        },
+        keyword3: {
+          value: e.detail.value.problem,
+        },
+      },
+      emphasis_keyword: "",
+    };
 
     //保存到数据库中
     const query = Bmob.Query("repair");
@@ -53,20 +73,35 @@ Page({
     query.save().then(res => {
       console.log(res);
       wx.showToast({ title: "已提交" });
+      for(let openid of this.data.techOpenid)
+      {
+        modalData.touser = openid;
+        Bmob.sendWeAppMessage(modalData).then(res => {
+          console.log(res);
+        }).catch(err => {
+          console.log(err);
+        });
+      }
+      wx.navigateBack();//跳转回“我”的页面
     }).catch(err => {
       console.log(err);
     });
-
-    //跳转回“我”的页面
-    wx.navigateBack();
-
-    /*后续最好添加提醒功能*/
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let temp = [];
+    const query = Bmob.Query("user");
+    query.equalTo("isTech", "==", true);
+    query.find().then(res => {
+      for(let item of res)
+        temp.push(item.userOpenid);
+      this.setData({ techOpenid: temp });
+    }).catch(err => {
+      console.log(err);
+    });
     this.setData({userOpenid: app.globalData.userOpenid});//不知道为什么不能在data赋值
   },
 
