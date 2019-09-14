@@ -46,7 +46,6 @@ Page({
       wx.showToast({ title: "联系方式至少选择其中一种", icon: "none" });
       return;
     }
-    let dateTime = new Date();
     let modalData = {
       touser: "",
       template_id: this.data.repairModalId,
@@ -54,7 +53,7 @@ Page({
       form_id: e.detail.formId,
       data: {
         keyword1: {
-          value: dateTime.toLocaleDateString() + " " + dateTime.toLocaleTimeString(),
+          value: "",
         },
         keyword2: {
           value: e.detail.value.name,
@@ -73,6 +72,7 @@ Page({
     query.set("userOpenid", this.data.userOpenid);
     query.save().then(res => {
       console.log(res);
+      modalData.data.keyword1.value = res.createdAt;
       wx.showToast({ title: "已提交" });
       for(let openid of this.data.techOpenid)
       {
