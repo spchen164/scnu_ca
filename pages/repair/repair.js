@@ -48,7 +48,7 @@ Page({
     let modalData = {
       touser: this.data.userOpenid,
       template_id: this.data.repairModalId,
-      page: "index",
+      page: "pages/index/index",
       form_id: e.detail.formId,
       data: {
         keyword1: {
